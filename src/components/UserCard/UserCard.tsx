@@ -1,13 +1,25 @@
-import "./style.css";
+import { FunctionComponent } from 'react';
 
-export function UserCard(props) {
+import './style.css';
+
+interface UserCardProps {
+  image: string;
+  firstName: string;
+  lastName: string;
+  address: {
+    city: string;
+  }
+}
+
+export const UserCard: FunctionComponent<UserCardProps> = ({ image, firstName, lastName, address }) => {
+
   return (
     <div className="userCard">
-      <img className="userPic" src={props.image} />
+      <img className="userPic" src={image} />
       <div className="userInfo">
-        <div>{`${props.firstName} ${props.lastName}`}</div>
-        <div>{props.address.city}</div>
+        <div>{`${firstName} ${lastName}`}</div>
+        <div>{address.city}</div>
       </div>
     </div>
   );
-}
+};

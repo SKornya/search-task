@@ -1,15 +1,15 @@
-import { useContext } from "react";
-import { SearchContext } from "./SearchContext";
+import { FunctionComponent, useContext } from "react";
+import { SearchContext, User } from "./SearchContext";
 import { UserCard } from "../UserCard/UserCard";
 
 import "./style.css";
 
-export function SearchResults() {
+export const SearchResults: FunctionComponent = () => {
   const { users } = useContext(SearchContext);
 
   return (
     <div className="usersList">
-      {users.map((user) => (
+      {users.map((user: User) => (
         <UserCard {...user} />
       ))}
     </div>

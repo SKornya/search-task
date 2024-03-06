@@ -1,3 +1,12 @@
 import { createContext } from "react";
 
-export const SearchContext = createContext({ users: [] });
+export interface User {
+  image: string;
+  firstName: string;
+  lastName: string;
+  address: {
+    city: string;
+  };
+}
+
+export const SearchContext = createContext<{ users: User[] }>({ users: [] });

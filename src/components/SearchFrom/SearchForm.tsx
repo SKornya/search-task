@@ -1,6 +1,7 @@
+import { FunctionComponent } from "react";
 import "./styles.css";
 
-export function SearchForm() {
+export const SearchForm: FunctionComponent = () => {
   return (
     <div className="searchForm">
       <form>
