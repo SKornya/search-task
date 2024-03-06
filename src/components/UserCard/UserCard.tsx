@@ -1,18 +1,14 @@
 import { FunctionComponent } from 'react';
 
 import './style.css';
+import { User } from '../SearchResults/SearchContext';
 
-interface UserCardProps {
-  image: string;
-  firstName: string;
-  lastName: string;
-  address: {
-    city: string;
-  }
-}
-
-export const UserCard: FunctionComponent<UserCardProps> = ({ image, firstName, lastName, address }) => {
-
+export const UserCard: FunctionComponent<User> = ({
+  image,
+  firstName,
+  lastName,
+  address,
+}) => {
   return (
     <div className="userCard">
       <img className="userPic" src={image} />
