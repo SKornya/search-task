@@ -1,17 +1,19 @@
-import { FunctionComponent, useContext } from "react";
-import { SearchContext, User } from "./SearchContext";
-import { UserCard } from "../UserCard/UserCard";
+import { FunctionComponent, useContext } from 'react';
+import { SearchContext, User } from './SearchContext';
+import { UserCard } from '../UserCard/UserCard';
 
-import "./style.css";
+import './style.css';
 
 export const SearchResults: FunctionComponent = () => {
-  const { users } = useContext(SearchContext);
+  const { state } = useContext(SearchContext);
+  const { users, loading } = state;
 
+  // показываем лоадер во время загрузки данных
   return (
     <div className="usersList">
-      {users.map((user: User) => (
-        <UserCard {...user} />
-      ))}
+      {!loading
+        ? users.map((user: User) => <UserCard {...user} key={user.id} />)
+        : 'Loading...'}
     </div>
   );
-}
+};
